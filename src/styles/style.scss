@@ -1,0 +1,18 @@
+@use 'showAnimal';
+@use 'reset';
+@use 'animalList';
+@use 'header';
+@use 'footer';
+@use 'showAnimalDetails';
+
+#root{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    padding: 1rem;
+}
+main{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,12 @@
+header{
+    .header__nav ul{
+    display: flex;
+    gap: .5rem;
+    list-style: none;
+    justify-content: center;
+
+    li .active{
+        text-decoration: underline;
+    }
+    }
+}

@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { Spinner } from "./components/Spinner";
 import { NotFound } from "./pages/NotFound";
 import { animalsLoader } from "./loaders/animalsLoader";
+import { Animal } from "./pages/Animal";
 
 
 export const router = createBrowserRouter([
@@ -20,13 +21,21 @@ export const router = createBrowserRouter([
             {
                 path: "/animals",
                 element: (
-                <Suspense fallback={<Spinner />}>
-                <Zoo />
-                </Suspense>
+                    <Suspense fallback={<Spinner />}>
+                        <Zoo />
+                    </Suspense>
                 ),
                 loader: animalsLoader
+            },
+            {
+                path: "/animals/:id",
+                element: (
+                    <Suspense fallback={<Spinner />}>
+                        <Animal  />
+                    </Suspense>
+                ),
             }
         ],
-        errorElement: <NotFound/>
+        errorElement: <NotFound />
     }
 ])

@@ -10,11 +10,13 @@ export const Zoo = () => {
     const [loading, setLoading] = useState(false)
 
     return (
-        <div>
+        <div className="wrapper">
             <h1>The Zoo</h1>
+            <ul className="animal__list">
             {animals.map((animal)=>(
                 <ShowAnimal animal={animal} key={animal.id} />
             ))}
+            </ul>
         </div>
     )
 }

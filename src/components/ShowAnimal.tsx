@@ -1,15 +1,24 @@
+import { useNavigate } from "react-router-dom"
 import { IAnimal } from "../models/IAnimal"
 
 interface IShowAnimalProps {
-   animal: IAnimal
+    animal: IAnimal
 }
-export const ShowAnimal = ({animal}: IShowAnimalProps) => {
-
+export const ShowAnimal = ({ animal }: IShowAnimalProps) => {
+const navigate = useNavigate()
+    const handleClick = () => {
+        navigate("/animals/" + animal.id)
+    }
     return (
-        <div>
-        <h2>{animal.name}</h2>
-        <p>{animal.shortDescription}</p>
-        <img src={animal.imageUrl} alt={animal.name}/>
-    </div>
+        <li>
+            <div className="animal__card">
+                <h2>{animal.name}</h2>
+                <p>{animal.shortDescription}</p>
+                <picture>
+                <img src={animal.imageUrl} alt={animal.name} />
+                </picture>
+               <button onClick={handleClick}>Läs mer</button>
+            </div>
+        </li>
     )
 }
