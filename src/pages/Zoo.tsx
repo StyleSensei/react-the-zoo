@@ -10,7 +10,24 @@ export const Zoo = () => {
     const [loading, setLoading] = useState(false)
     const location = useLocation()
 
-    
+    const checkIfHungry = () => {
+
+        animalsInState.forEach((animal) => {
+            const lastFed = new Date(animal.lastFed)
+            const currentTime = new Date(Date.now())
+            const diff = currentTime.getHours() - lastFed.getHours()
+            if (diff >= 3)
+                console.log(animal.name + ' är hungrig')
+
+
+            if (diff >= 4)
+                console.log(animal.name + ' är utsvulten')
+            // console.log(hungryAnimals)
+        })
+    }
+
+    checkIfHungry()
+
     animals.map((animal) => (
         animal.lastFed = new Date(animal.lastFed).toLocaleString()
     ))
@@ -24,7 +41,7 @@ export const Zoo = () => {
         <div className="wrapper">
             {animalsInState && setAnimalsInState && <Outlet key={location.pathname} context={[animalsInState, setAnimalsInState]} />}
             <h1>The Zoo</h1>
-          <ul className="animal__list">
+            <ul className="animal__list">
                 {animalsInState.map((animal) => (
                     <ShowAnimal animal={animal} key={animal.id} />
                 ))}
