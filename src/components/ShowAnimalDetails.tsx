@@ -41,7 +41,7 @@ export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnima
                 <p id="long-description">{animal.longDescription}</p>
                 <p id="medicine">Mediciner: {animal.medicine}</p>
                 {animal.isFed && <p id="is-fed">Är matad :D</p>}
-                <p id="last-fed">Senast matad: {lastFed ? lastFed : animal.lastFed}</p>
+                <p id="last-fed">Senast matad: {animal.lastFed}</p>
                 <p id="birth">Födelseår: {animal.yearOfBirth}</p>
                 <button onClick={handleClick} disabled={animal.isFed}>Mata djur</button>
             </div>

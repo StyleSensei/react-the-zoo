@@ -10,6 +10,10 @@ export const Zoo = () => {
     const [loading, setLoading] = useState(false)
     const location = useLocation()
 
+    
+    animals.map((animal) => (
+        animal.lastFed = new Date(animal.lastFed).toLocaleString()
+    ))
     if (!animalsInState.length)
         setAnimalsInState(JSON.parse(localStorage.getItem('animals') as string))
     useEffect(() => {
@@ -20,7 +24,7 @@ export const Zoo = () => {
         <div className="wrapper">
             {animalsInState && setAnimalsInState && <Outlet key={location.pathname} context={[animalsInState, setAnimalsInState]} />}
             <h1>The Zoo</h1>
-            <ul className="animal__list">
+          <ul className="animal__list">
                 {animalsInState.map((animal) => (
                     <ShowAnimal animal={animal} key={animal.id} />
                 ))}

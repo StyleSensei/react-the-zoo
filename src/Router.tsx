@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
                 path: "/animals",
                 element: (
                     <Suspense fallback={<Spinner />}>
-                        <Zoo />
+                       <Zoo />
                     </Suspense>
                 ),
                 loader: animalsLoader,

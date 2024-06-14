@@ -9,6 +9,7 @@ export const ShowAnimal = ({ animal,}: IShowAnimalProps) => {
 const navigate = useNavigate()
     const handleClick = () => {
         navigate("/animals/" + animal.id)
+        scrollTo({top:0, left:0, behavior:'smooth'})
       
     }
     return (
