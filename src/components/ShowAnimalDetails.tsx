@@ -3,19 +3,29 @@ import { IAnimal } from "../models/IAnimal"
 
 interface IAnimalDetails {
     animal: IAnimal
+    animals: IAnimal[]
+    setAnimalsInState: (animals: IAnimal[]) => void
 }
-export const ShowAnimalDetails = ({ animal }: IAnimalDetails) => {
+export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnimalDetails) => {
 
 const [isFed, setIsFed] = useState(false)
 const [lastFed, setLastFed] = useState("")
 
-
+console.log(animals)
 
 const handleClick = () => {
     setIsFed(true)
     const currentDate = new Date()
-    setLastFed(currentDate.toLocaleString()
-    )
+    setLastFed(currentDate.toLocaleString())
+
+    setAnimalsInState(animals.map((a) => {
+        if(a.id === animal.id){
+            return {...a, lastFed: currentDate.toLocaleString()}
+        }
+        return a;
+    }))
+
+    
 }
 console.log(lastFed)
 
@@ -23,7 +33,7 @@ console.log(lastFed)
         <>
             <div className="animal__card--details">
                 <picture>
-                    <img src={animal.imageUrl} alt={animal.name} />
+                    <img src={animal.imageUrl} alt={animal.name}/>
                 </picture>
                 <h1 id="name">{animal.name}</h1>
                 <p id="latin">{animal.latinName}</p>

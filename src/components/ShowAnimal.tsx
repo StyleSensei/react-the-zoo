@@ -3,11 +3,13 @@ import { IAnimal } from "../models/IAnimal"
 
 interface IShowAnimalProps {
     animal: IAnimal
+
 }
-export const ShowAnimal = ({ animal }: IShowAnimalProps) => {
+export const ShowAnimal = ({ animal,}: IShowAnimalProps) => {
 const navigate = useNavigate()
     const handleClick = () => {
         navigate("/animals/" + animal.id)
+      
     }
     return (
         <li>
@@ -15,7 +17,7 @@ const navigate = useNavigate()
                 <h2>{animal.name}</h2>
                 <p>{animal.shortDescription}</p>
                 <picture>
-                <img src={animal.imageUrl} alt={animal.name} />
+                <img src={animal.imageUrl} alt={animal.name}/>
                 </picture>
                <button onClick={handleClick}>Läs mer</button>
             </div>

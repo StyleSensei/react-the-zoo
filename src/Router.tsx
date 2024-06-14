@@ -25,16 +25,19 @@ export const router = createBrowserRouter([
                         <Zoo />
                     </Suspense>
                 ),
-                loader: animalsLoader
+                loader: animalsLoader,
+                children: [
+
+                    {
+                        path: "/animals/:id",
+                        element: (
+                            <Suspense fallback={<Spinner />}>
+                                <Animal  />
+                            </Suspense>
+                        ),
+                    }
+                ]
             },
-            {
-                path: "/animals/:id",
-                element: (
-                    <Suspense fallback={<Spinner />}>
-                        <Animal  />
-                    </Suspense>
-                ),
-            }
         ],
         errorElement: <NotFound />
     }

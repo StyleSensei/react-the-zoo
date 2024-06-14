@@ -1,33 +1,43 @@
-import { useParams } from "react-router-dom"
+import { useOutletContext, useParams } from "react-router-dom"
 import { ShowAnimalDetails } from "../components/ShowAnimalDetails"
 import { IAnimal } from "../models/IAnimal"
 import { useEffect, useState } from "react"
 import { getAnimal } from "../services/animalsService"
 
+interface IAnimalContext {
+    animals: IAnimal[]
+    setAnimalsInState: (animals: IAnimal[]) => void
+}
+
 export const Animal = () => {
 
-const {id} = useParams()
-const [animal, setAnimal] = useState<IAnimal>()
-const [loading, setLoading] = useState(false)
+    const { id } = useParams()
+    const [animal, setAnimal] = useState<IAnimal>()
+    const [loading, setLoading] = useState(false)
+    const [animals, setAnimalsInState] = useOutletContext<IAnimalContext>()
 
-useEffect(()=>{
-
-    if(loading) return;
-    const getAnimalData = async () => {
-
-        const data = await getAnimal(id)
-    setAnimal(data)
-    setLoading(true)
-    }
-    getAnimalData()
-})
-
+    useEffect(() => {
+        // if(animal) return
+        // setAnimal(JSON.parse(localStorage.getItem('animal')||''))
+        
+        if (loading) return;
+        const getAnimalData = async () => {
+            
+            const data = await getAnimal(id)
+            setAnimal(data)
+            setLoading(true)
+            // localStorage.setItem('animal', JSON.stringify(data))
+            }
+            getAnimalData()
+            })
+            
+            console.log(animals)
     return (
-       <>
-       <div className="wrapper">
-       <h2>Detaljer</h2>
-       {animal && <ShowAnimalDetails animal={animal}/>}
-       </div>
-       </>
+        <>
+            <div className="wrapper">
+                <h2>Detaljer</h2>
+                {animal && <ShowAnimalDetails animal={animal} animals={animals} setAnimalsInState={setAnimalsInState}/>}
+            </div>
+        </>
     )
 }
