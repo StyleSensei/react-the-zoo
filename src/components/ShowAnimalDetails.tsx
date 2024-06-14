@@ -8,32 +8,30 @@ interface IAnimalDetails {
 }
 export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnimalDetails) => {
 
-const [isFed, setIsFed] = useState(false)
-const [lastFed, setLastFed] = useState("")
+    const [isFed, setIsFed] = useState(false)
+    const [lastFed, setLastFed] = useState("")
 
-console.log(animals)
 
-const handleClick = () => {
-    setIsFed(true)
-    const currentDate = new Date()
-    setLastFed(currentDate.toLocaleString())
+    const handleClick = () => {
+        setIsFed(true)
+        const currentDate = new Date()
+        setLastFed(currentDate.toLocaleString())
 
-    setAnimalsInState(animals.map((a) => {
-        if(a.id === animal.id){
-            return {...a, lastFed: currentDate.toLocaleString()}
-        }
-        return a;
-    }))
-
-    
-}
-console.log(lastFed)
+        setAnimalsInState(animals.map((a) => {
+            if (a.id === animal.id) {
+                return { ...a, lastFed: currentDate.toLocaleString(),
+                    isFed: true
+                 }
+            }
+            return a;
+        }))
+    }
 
     return (
         <>
             <div className="animal__card--details">
                 <picture>
-                    <img src={animal.imageUrl} alt={animal.name}/>
+                    <img src={animal.imageUrl} alt={animal.name} />
                 </picture>
                 <h1 id="name">{animal.name}</h1>
                 <p id="latin">{animal.latinName}</p>
@@ -42,10 +40,10 @@ console.log(lastFed)
                 <h3 id="about-species">Rasbeskrivning</h3>
                 <p id="long-description">{animal.longDescription}</p>
                 <p id="medicine">Mediciner: {animal.medicine}</p>
-                {isFed && <p id="is-fed">Är matad :D</p>}
+                {animal.isFed && <p id="is-fed">Är matad :D</p>}
                 <p id="last-fed">Senast matad: {lastFed ? lastFed : animal.lastFed}</p>
                 <p id="birth">Födelseår: {animal.yearOfBirth}</p>
-                <button onClick={handleClick} disabled={isFed}>Mata djur</button>
+                <button onClick={handleClick} disabled={animal.isFed}>Mata djur</button>
             </div>
         </>
     )

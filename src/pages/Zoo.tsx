@@ -18,7 +18,7 @@ export const Zoo = () => {
 
     return (
         <div className="wrapper">
-            {animalsInState && setAnimalsInState && <Outlet key={location.pathname} context={[animalsInState, setAnimalsInState]}/>}
+            {animalsInState && setAnimalsInState && <Outlet key={location.pathname} context={[animalsInState, setAnimalsInState]} />}
             <h1>The Zoo</h1>
             <ul className="animal__list">
                 {animalsInState.map((animal) => (

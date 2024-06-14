@@ -12,31 +12,33 @@ interface IAnimalContext {
 export const Animal = () => {
 
     const { id } = useParams()
-    const [animal, setAnimal] = useState<IAnimal>()
+    // const [animal, setAnimal] = useState<IAnimal>()
     const [loading, setLoading] = useState(false)
     const [animals, setAnimalsInState] = useOutletContext<IAnimalContext>()
 
-    useEffect(() => {
-        // if(animal) return
-        // setAnimal(JSON.parse(localStorage.getItem('animal')||''))
-        
-        if (loading) return;
-        const getAnimalData = async () => {
-            
-            const data = await getAnimal(id)
-            setAnimal(data)
-            setLoading(true)
-            // localStorage.setItem('animal', JSON.stringify(data))
-            }
-            getAnimalData()
-            })
-            
-            console.log(animals)
+    const animal:IAnimal = animals.find((a:IAnimal) => a.id.toString() === id)
+
+
+    // useEffect(() => {
+    //     // if(animal) return
+    //     // setAnimal(JSON.parse(localStorage.getItem('animal')||''))
+
+    //     if (loading) return;
+    //     const getAnimalData = async () => {
+
+    //         const data = await getAnimal(id)
+    //         setAnimal(data)
+    //         setLoading(true)
+    //         // localStorage.setItem('animal', JSON.stringify(data))
+    //     }
+    //     getAnimalData()
+    // })
+
     return (
         <>
             <div className="wrapper">
                 <h2>Detaljer</h2>
-                {animal && <ShowAnimalDetails animal={animal} animals={animals} setAnimalsInState={setAnimalsInState}/>}
+                {animal && <ShowAnimalDetails animal={animal} animals={animals} setAnimalsInState={setAnimalsInState} />}
             </div>
         </>
     )
