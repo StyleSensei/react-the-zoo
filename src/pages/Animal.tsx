@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import { ShowAnimalDetails } from "../components/ShowAnimalDetails"
 import { IAnimal } from "../models/IAnimal"
 import { useEffect, useState } from "react"
-import { getAnimal, getAnimals } from "../services/animalsService"
+import { getAnimal } from "../services/animalsService"
 
 export const Animal = () => {
 

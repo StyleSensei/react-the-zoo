@@ -1,9 +1,24 @@
+import { useState } from "react"
 import { IAnimal } from "../models/IAnimal"
 
 interface IAnimalDetails {
     animal: IAnimal
 }
 export const ShowAnimalDetails = ({ animal }: IAnimalDetails) => {
+
+const [isFed, setIsFed] = useState(false)
+const [lastFed, setLastFed] = useState("")
+
+
+
+const handleClick = () => {
+    setIsFed(true)
+    const currentDate = new Date()
+    setLastFed(currentDate.toLocaleString()
+    )
+}
+console.log(lastFed)
+
     return (
         <>
             <div className="animal__card--details">
@@ -17,10 +32,10 @@ export const ShowAnimalDetails = ({ animal }: IAnimalDetails) => {
                 <h3 id="about-species">Rasbeskrivning</h3>
                 <p id="long-description">{animal.longDescription}</p>
                 <p id="medicine">Mediciner: {animal.medicine}</p>
-                {animal.isFed && <p id="is-fed">Är matad :D{animal.isFed}</p>}
-                <p id="last-fed">Senast matad: {animal.lastFed}</p>
+                {isFed && <p id="is-fed">Är matad :D</p>}
+                <p id="last-fed">Senast matad: {lastFed ? lastFed : animal.lastFed}</p>
                 <p id="birth">Födelseår: {animal.yearOfBirth}</p>
-                <button>Mata</button>
+                <button onClick={handleClick} disabled={isFed}>Mata djur</button>
             </div>
         </>
     )
