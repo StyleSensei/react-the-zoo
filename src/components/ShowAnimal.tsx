@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { IAnimal } from "../models/IAnimal"
+import { Alert } from "./Alert"
 
 interface IShowAnimalProps {
     animal: IAnimal
@@ -15,6 +16,7 @@ const navigate = useNavigate()
     return (
         <li>
             <div className="animal__card">
+                {animal.alert && <Alert/>}
                 <h2>{animal.name}</h2>
                 <p>{animal.shortDescription}</p>
                 <picture>

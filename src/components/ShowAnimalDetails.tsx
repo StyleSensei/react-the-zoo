@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { IAnimal } from "../models/IAnimal"
+import { Alert } from "./Alert"
 
 interface IAnimalDetails {
     animal: IAnimal
@@ -8,19 +9,16 @@ interface IAnimalDetails {
 }
 export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnimalDetails) => {
 
-    const [isFed, setIsFed] = useState(false)
-    const [lastFed, setLastFed] = useState("")
-
 
     const handleClick = () => {
-        setIsFed(true)
+        // setIsFed(true)
         const currentDate = new Date()
-        setLastFed(currentDate.toLocaleString())
+        // setLastFed(currentDate.toLocaleString())
 
         setAnimalsInState(animals.map((a) => {
             if (a.id === animal.id) {
                 return { ...a, lastFed: currentDate.toLocaleString(),
-                    isFed: true
+                    isFed: true, alert: false
                  }
             }
             return a;
@@ -44,6 +42,7 @@ export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnima
                 <p id="last-fed">Senast matad: {animal.lastFed}</p>
                 <p id="birth">Födelseår: {animal.yearOfBirth}</p>
                 <button onClick={handleClick} disabled={animal.isFed}>Mata djur</button>
+            {animal.alert && <Alert/>}
             </div>
         </>
     )
