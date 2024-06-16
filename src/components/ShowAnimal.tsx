@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom"
 import { IAnimal } from "../models/IAnimal"
 import { Alert } from "./Alert"
+import { Img } from "./Img"
+import { ImgFallback } from "./ImgFallback"
 
 interface IShowAnimalProps {
     animal: IAnimal
@@ -20,7 +22,8 @@ const navigate = useNavigate()
                 <h2>{animal.name}</h2>
                 <p>{animal.shortDescription}</p>
                 <picture>
-                <img src={animal.imageUrl} alt={animal.name}/>
+                    
+                <Img src={animal.imageUrl} alt={animal.name} fallback={<ImgFallback animal={animal}/>}/>
                 </picture>
                <button onClick={handleClick}>Läs mer</button>
             </div>

@@ -1,6 +1,7 @@
-import { useState } from "react"
 import { IAnimal } from "../models/IAnimal"
 import { Alert } from "./Alert"
+import { Img } from "./Img"
+import { ImgFallback } from "./ImgFallback"
 
 interface IAnimalDetails {
     animal: IAnimal
@@ -17,9 +18,10 @@ export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnima
 
         setAnimalsInState(animals.map((a) => {
             if (a.id === animal.id) {
-                return { ...a, lastFed: currentDate.toLocaleString(),
+                return {
+                    ...a, lastFed: currentDate.toLocaleString(),
                     isFed: true, alert: false
-                 }
+                }
             }
             return a;
         }))
@@ -29,7 +31,7 @@ export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnima
         <>
             <div className="animal__card--details">
                 <picture>
-                    <img src={animal.imageUrl} alt={animal.name} />
+                    <Img src={animal.imageUrl} alt={animal.name} fallback={<ImgFallback animal={animal} />} />
                 </picture>
                 <h1 id="name">{animal.name}</h1>
                 <p id="latin">{animal.latinName}</p>
@@ -42,7 +44,7 @@ export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnima
                 <p id="last-fed">Senast matad: {animal.lastFed}</p>
                 <p id="birth">Födelseår: {animal.yearOfBirth}</p>
                 <button onClick={handleClick} disabled={animal.isFed}>Mata djur</button>
-            {animal.alert && <Alert/>}
+                {animal.alert && <Alert />}
             </div>
         </>
     )
