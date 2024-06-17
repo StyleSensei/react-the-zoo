@@ -1,8 +1,8 @@
 export const Alert = () => {
     return (
         <>
-        <div>
-            <p>Jättehungrig!! över 4 timmar sedan!</p>
+        <div className="alert alert__badge">
+            <p>Jättehungrig!! Mata nu!</p>
         </div>
         </>
     )

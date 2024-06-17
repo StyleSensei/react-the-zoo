@@ -20,7 +20,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #979dfe;
+  color: #9f9f9f;
 }
 
 body {
@@ -43,12 +43,13 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #005f19;
   cursor: pointer;
   transition: border-color 0.25s;
+  max-width: 300px;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #efefef;
 }
 button:focus,
 button:focus-visible {

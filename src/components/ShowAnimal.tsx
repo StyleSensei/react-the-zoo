@@ -8,24 +8,27 @@ interface IShowAnimalProps {
     animal: IAnimal
 
 }
-export const ShowAnimal = ({ animal,}: IShowAnimalProps) => {
-const navigate = useNavigate()
+export const ShowAnimal = ({ animal, }: IShowAnimalProps) => {
+    const navigate = useNavigate()
     const handleClick = () => {
         navigate("/animals/" + animal.id)
-        scrollTo({top:0, left:0, behavior:'smooth'})
-      
+        scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+
     }
     return (
         <li>
-            <div className="animal__card">
-                {animal.alert && <Alert/>}
+            <div className={animal.alert ? 'animal__card alert' : 'animal__card'}>
                 <h2>{animal.name}</h2>
-                <p>{animal.shortDescription}</p>
+                {location.pathname === '/animals' && <p>{animal.shortDescription}</p>}
                 <picture>
-        
-                <Img src={animal.imageUrl} alt={animal.name} fallback={<ImgFallback animal={animal}/>}/>
+                    {animal.alert && <Alert />}
+
+                    <Img src={animal.imageUrl} alt={animal.name} fallback={<ImgFallback animal={animal} />} />
                 </picture>
-               <button onClick={handleClick}>Läs mer</button>
+
+                {location.pathname === '/animals' && animal.isFed && <button onClick={handleClick}>Läs mer</button>}
+                {location.pathname === '/animals' && !animal.isFed && <button className="alert--btn" onClick={handleClick}>Mata nu</button>}
+
             </div>
         </li>
     )

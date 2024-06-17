@@ -1,0 +1,38 @@
+@keyframes badgeanimation {
+  from {
+    opacity: 0;
+    border-color: antiquewhite;
+  }
+  to {
+    opacity: 1;
+    border-color: red;
+  }
+}
+
+@keyframes borderanimation {
+  from {
+    border-color: antiquewhite;
+  }
+  to {
+    border-color: red;
+  }
+}
+
+@keyframes shake {
+  from {
+    border-color: antiquewhite;
+    transform: rotate(0deg);
+    scale: 1;
+  }
+  33% {
+    transform: rotate(.3deg);
+  }
+  66% {
+    transform: rotate(-.3deg);
+  }
+  to {
+    transform: rotate(0deg);
+    scale: 1.02;
+    border-color: red;
+  }
+}

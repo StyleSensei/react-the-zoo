@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react';
 import { IAnimalsLoader } from '../loaders/animalsLoader';
 
     
-   export const useUpdateAnimalStatus = (alertHours:number, hungryHours:number) =>{
+   export const useUpdateAnimalStatus = (alertHours?:number, hungryHours?:number) =>{
         const { animals } = useLoaderData() as IAnimalsLoader;
             const [animalsInState, setAnimalsInState] = useState(animals);
 
     useEffect(() => {
+      if(alertHours && hungryHours)
       setAnimalsInState(
         animals.map((animal) => {
           const lastFed = new Date(animal.lastFed);
