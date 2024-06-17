@@ -22,7 +22,7 @@ const navigate = useNavigate()
                 <h2>{animal.name}</h2>
                 <p>{animal.shortDescription}</p>
                 <picture>
-                    
+        
                 <Img src={animal.imageUrl} alt={animal.name} fallback={<ImgFallback animal={animal}/>}/>
                 </picture>
                <button onClick={handleClick}>Läs mer</button>

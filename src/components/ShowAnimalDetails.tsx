@@ -12,9 +12,7 @@ export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnima
 
 
     const handleClick = () => {
-        // setIsFed(true)
         const currentDate = new Date()
-        // setLastFed(currentDate.toLocaleString())
 
         setAnimalsInState(animals.map((a) => {
             if (a.id === animal.id) {

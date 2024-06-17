@@ -24,7 +24,7 @@ export const ImgFallback = ({ animal }: ImgFallbackProps) => {
     }, [animal])
     return (
 
-        <img src={fallbackImg?.hits[0].webformatURL} />
+        <img src={fallbackImg?.hits[0].largeImageURL} />
 
     )
 }
