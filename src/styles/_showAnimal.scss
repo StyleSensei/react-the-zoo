@@ -1,3 +1,5 @@
+@use 'mixins';
+
 .animal__card {
   display: flex;
   flex-direction: column;
@@ -30,21 +32,54 @@
     @extend .animal__card;
     display: grid;
     grid-template-areas:
-      'img hd'
-      'img latin'
-      'img h3'
-      'img sdesc'
-      'img ldesc'
-      'img ldesc'
-      'fed last'
-      '1fr birth'
-      '1fr btn';
+   'pic'
+   'hd'
+   'latin'
+   'h3'
+   'sdesc'
+   'ldesc'
+   'fed'
+   'last'
+   'birth'
+   'btn'
+      
+    ;
     width: 80vw;
     height: unset;
 
+    @include mixins.lg {
+
+    }
+
+    @include mixins.phoneLS {
+grid-template-areas: 
+'hd ..'
+'pic . latin'
+'pic . h3'
+'pic . sdesc'
+'ldesc ldesc'
+'ldesc ldesc'
+'fed last'
+'1fr birth'
+'1fr btn'
+;
+    }
+    @include mixins.tablet{
+      grid-template-areas:
+      'pic hd'
+      'pic latin'
+      'pic h3'
+      'pic sdesc'
+      'pic ldesc'
+      'pic ldesc'
+      'fed last'
+      '1fr birth'
+      '1fr btn';
+    }
+
     picture {
       height: 100%;
-      grid-area: img;
+      grid-area: pic;
     }
     h1 {
       grid-area: hd;

@@ -1,0 +1,135 @@
+// @use 'config';
+// $fontSizeMenuLinkMobile: 2rem;
+// $fontSizeMenuLinkMobile--landscape: 1.4rem;
+// $fontSizeMenuLinkDesktop: 0.75rem;
+
+//breakpoints
+$tablet: 768px;
+$lg: 992px;
+$desktop: 1200px;
+$desktopXL: 1600px;
+$desktopXXL: 2000px;
+
+@mixin phoneLS {
+  @media only screen and (min-device-width: 375px) and (max-device-width: 950px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}
+@mixin lg {
+  @media screen and (min-width: $lg) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media screen and (min-width: $desktop) {
+    @content;
+  }
+}
+@mixin desktopXl {
+  @media screen and (min-width: $desktopXL) {
+    @content;
+  }
+}
+@mixin desktopXXL {
+  @media screen and (min-width: $desktopXXL) {
+    @content;
+  }
+}
+
+// @mixin link {
+//   display: inline-block;
+//   font-size: $fontSizeMenuLinkMobile;
+//   text-transform: uppercase;
+//   padding: 1.5rem 1.5rem;
+//   margin: 0.5rem;
+//   font-weight: 300;
+//   // border: solid config.$primary-color 2px;
+//   // @include config.transition-cubBez;
+//   &::after {
+//     content: '>';
+//     color: config.$primary-color;
+//     width: 1rem;
+//     height: 1rem;
+//     right: 5px;
+//     position: absolute;
+//     visibility: hidden;
+//     bottom: 3.2pc;
+//   }
+
+//   &:hover {
+//     color: config.$secondary-color;
+
+//     @include config.transition-cubBez;
+//     &::after {
+//       visibility: visible;
+//       @include config.transition-cubBez;
+//       color: config.$secondary-color;
+//     }
+//   }
+// }
+
+@mixin button {
+  border-radius: 12px;
+  border-style: none;
+  line-height: 1.23;
+
+  position: relative;
+
+  height: 3.29rem;
+  width: 100%;
+  justify-items: center;
+  text-align: center;
+  align-items: center;
+  background-color: config.$primary-color;
+  color: white;
+  border: solid white 2px;
+  // @include config.transition-cubBez;
+  transition: all ease-in-out .3s;
+
+
+  &::after {
+    content: '';
+    background: url('/src/media/arrow-right-circle-fill.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: config.$primary-color;
+    width: 2rem;
+    height: 2rem;
+    right: 33%;
+    bottom: calc(2rem / 2 / 2);
+    position: absolute;
+    opacity: 0;
+    @include config.transition-cubBez;
+  }
+  & span{
+    margin-right: 0rem;  
+    // @include config.transition-cubBez;
+    transition: margin .3s ease-in-out;
+}
+
+  &:hover {
+    cursor: pointer;
+    @include config.transition-cubBez;
+    
+    & span {
+      @include config.transition-cubBez;
+      margin-right: 5%;
+    }
+
+    &::after {
+      transition-delay: .15s;
+      // transition: right ease-in-out .3s;
+      opacity: 1;
+    right: 30%;
+
+
+
+    }
+  }
+}

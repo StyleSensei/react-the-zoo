@@ -1,25 +1,22 @@
-import { useOutletContext, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { ShowAnimalDetails } from "../components/ShowAnimalDetails"
 import { IAnimal } from "../models/IAnimal"
+import { useOutletContextType } from "../hooks/useOutletContextType"
 
-interface IAnimalContext {
-    animals: IAnimal[]
-    setAnimalsInState: (animals: IAnimal[]) => void
-}
 
 export const Animal = () => {
 
     const { id } = useParams()
-    const [animals, setAnimalsInState] = useOutletContext<IAnimalContext>()
+    const [animalsInState, setAnimalsInState] = useOutletContextType()
+    
 
-    const animal:IAnimal = animals.find((a:IAnimal) => a.id.toString() === id)
-
+    const animal = animalsInState.find((a: IAnimal) => a.id.toString() === id) as IAnimal
 
     return (
         <>
             <div className="wrapper">
                 <h2>Detaljer</h2>
-                {animal && <ShowAnimalDetails animal={animal} animals={animals} setAnimalsInState={setAnimalsInState} />}
+                {animal && <ShowAnimalDetails animal={animal} animals={animalsInState} setAnimalsInState={setAnimalsInState} />}
             </div>
         </>
     )

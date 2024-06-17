@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { IAnimal } from "../models/IAnimal"
 import { Alert } from "./Alert"
 import { Img } from "./Img"
@@ -27,6 +28,7 @@ export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnima
 
     return (
         <>
+                <Link to={'/animals'}>Tillbaka</Link>
             <div className="animal__card--details">
                 <picture>
                     <Img src={animal.imageUrl} alt={animal.name} fallback={<ImgFallback animal={animal} />} />

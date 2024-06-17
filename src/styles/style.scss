@@ -3,7 +3,7 @@
 @use 'animalList';
 @use 'header';
 @use 'footer';
-@use 'showAnimalDetails';
+@use 'mixins';
 
 #root{
     display: flex;
