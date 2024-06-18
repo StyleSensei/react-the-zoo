@@ -4,6 +4,8 @@
 @use 'header';
 @use 'footer';
 @use 'mixins';
+@use 'config';
+@use 'cursor';
 
 #root{
     display: flex;
@@ -12,7 +14,24 @@
     width: 100vw;
     padding: 1rem;
 }
+
+@font-face {
+    font-family: 'QuiteMagicalRegular';
+    src: url('../fonts/QuiteMagicalRegular.ttf');
+}
+
 main{
     display: flex;
     justify-content: center;
+}
+
+h1{
+    font-family: 'QuiteMagicalRegular';
+    font-size: config.$hero-h1
+    }
+    
+    h2{
+    font-family: 'QuiteMagicalRegular';
+    font-size: config.$hero-subhead
+
 }

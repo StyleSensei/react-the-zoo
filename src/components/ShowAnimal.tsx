@@ -16,7 +16,7 @@ export const ShowAnimal = ({ animal, }: IShowAnimalProps) => {
 
     }
     return (
-        <li>
+        
             <div className={animal.alert ? 'animal__card alert' : 'animal__card'}>
                 <h2>{animal.name}</h2>
                 {location.pathname === '/animals' && <p>{animal.shortDescription}</p>}
@@ -30,6 +30,6 @@ export const ShowAnimal = ({ animal, }: IShowAnimalProps) => {
                 {location.pathname === '/animals' && !animal.isFed && <button className="alert--btn" onClick={handleClick}>Mata nu</button>}
 
             </div>
-        </li>
+        
     )
 }

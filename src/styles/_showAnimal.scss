@@ -151,9 +151,13 @@
 
 
 .animal__list--home{
+  cursor: none;
   .animal__card{
     height: 30vh;
     width: 300px;
+      transition: all 3s ease-in;
+
+    
     picture{
       // height: 100%;
       img{
@@ -163,3 +167,14 @@
     }
   }
 }
+.animal__card:nth-child(5){
+  z-index: 99;
+}
+// @for $i from 1 through 20{
+// .animal__card:nth-child(#{$i}) {
+  
+//   // transition-delay: $i + .3s;
+//   transition-duration: $i + 3s;
+// }
+
+// }
