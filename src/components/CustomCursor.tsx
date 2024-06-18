@@ -1,43 +1,40 @@
 import { useEffect, useRef, useState } from "react"
 import { useWindowListener } from "../hooks/useWindowListener";
 
-interface ICustomCursorProps {
-    cursorActive: boolean,
-    setCursorActive: (cursorActive: boolean) => void
-}
 
 
-export const CustomCursor = ({cursorActive, setCursorActive}: ICustomCursorProps) => {
+
+export const CustomCursor = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
-    const cardPositions = useRef<{x:number, y:number}>({x: 0, y :0})
+    const cardPositions = useRef<{x:number, y:number}>({x: 1000, y :300})
     const [movementX, setMovementX] = useState(0)
     const [movementY, setMovementY] = useState(0)
     const [isMoving, setIsMoving] = useState(false)
 
-    const cards = document.querySelectorAll<HTMLElement>('.animal__list--home>.animal__card:nth-child(5)')
+    const cards = document.querySelectorAll<HTMLElement>('#stickan')
     const a = useRef(0);
     const n = useRef(0);
 
     useEffect(()=> {
         cards.forEach((card: HTMLElement,i)=> {
-            card.style.position = 'fixed'
-        if(i < 5){
-            cardPositions.current = {...cardPositions, y:300, x:15 + 350 * i}
-        card.style.top = `${cardPositions.current.y}px`
-    card.style.left = `${cardPositions.current.x}px`
-}
-if(i >= 5 && i <= 10){
-    cardPositions.current = {...cardPositions, y: 300 + 350, x: 15 + 350 * a.current}
-    card.style.top = `${cardPositions.current.y}px`
-card.style.left = `${cardPositions.current.x}px`
-a.current++
-}
-if(i > 10){
-    cardPositions.current = {...cardPositions, y: 300 + 700, x: 15 + 350 * n.current}
-    card.style.top = `${cardPositions.current.y}px`
-card.style.left = `${cardPositions.current.x}px`
-n.current++
-}
+            if(i < 5){
+                cardPositions.current = {...cardPositions, y:300, x:15 + 350 * i}
+                card.style.top = `${cardPositions.current.y}px`
+                card.style.left = `${cardPositions.current.x}px`
+                card.style.position = 'fixed'
+                }
+                if(i >= 5 && i <= 10){
+                    cardPositions.current = {...cardPositions, y: 300 + 350, x: 15 + 350 * a.current}
+                    card.style.top = `${cardPositions.current.y}px`
+                    card.style.left = `${cardPositions.current.x}px`
+                    a.current++
+                    }
+                    if(i > 10){
+                        cardPositions.current = {...cardPositions, y: 300 + 700, x: 15 + 350 * n.current}
+                        card.style.top = `${cardPositions.current.y}px`
+                        card.style.left = `${cardPositions.current.x}px`
+                        n.current++
+                        }
 })
 moveAnimal()
 },[cardPositions.current.x, cardPositions.current.y, cards])
@@ -84,7 +81,7 @@ useWindowListener('pointermove', (moveCursor));
             {location.pathname === '/' && <div className="custom-cursor" style={{
                 top: `${position.y}px`,
                 left: `${position.x}px`,
-                // transform: isMoving ? `skew(${movementX}deg, ${movementY}deg) rotate(${movementX * 2}deg)` : `skew(0deg, 0deg) rotate(0deg)`,
+                transform: isMoving ? `skew(${movementX}deg, ${movementY}deg) rotate(${movementX * 2}deg)` : `skew(0deg, 0deg) rotate(0deg)`,
                 transition: !isMoving ? `transform ease 150ms scale ease-in-out 0.3s` : `scale ease-in-out 0.3s`,
                 position:`fixed`
             }

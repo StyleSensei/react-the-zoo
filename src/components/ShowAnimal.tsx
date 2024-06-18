@@ -12,12 +12,13 @@ export const ShowAnimal = ({ animal, }: IShowAnimalProps) => {
     const navigate = useNavigate()
     const handleClick = () => {
         navigate("/animals/" + animal.id)
-        scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-
     }
+
+
+
     return (
         
-            <div className={animal.alert ? 'animal__card alert' : 'animal__card'}>
+            <div className={animal.alert ? 'animal__card alert' : 'animal__card'} id={animal.name.toLowerCase()}>
                 <h2>{animal.name}</h2>
                 {location.pathname === '/animals' && <p>{animal.shortDescription}</p>}
                 <picture>

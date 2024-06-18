@@ -6,10 +6,10 @@ export const HeaderNav = () => {
                <nav className="header__nav">
             <ul>
               <li>
-                <NavLink to={"/"}>Home</NavLink>
+                <NavLink to={"/"}>Start</NavLink>
               </li>
               <li>
-                <NavLink to={"/animals"}>Animals</NavLink>
+                <NavLink to={"/animals"}>Alla djur</NavLink>
               </li>
             </ul>
           </nav>
