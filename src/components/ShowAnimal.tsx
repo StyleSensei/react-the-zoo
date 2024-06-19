@@ -14,13 +14,12 @@ export const ShowAnimal = ({ animal, }: IShowAnimalProps) => {
         navigate("/animals/" + animal.id)
     }
 
-
-
     return (
         
             <div className={animal.alert ? 'animal__card alert' : 'animal__card'} id={animal.name.toLowerCase()}>
                 <h2>{animal.name}</h2>
                 {location.pathname === '/animals' && <p>{animal.shortDescription}</p>}
+                {/* {location.pathname === `/animals/${}`} */}
                 <picture>
                     {animal.alert && <Alert />}
 
