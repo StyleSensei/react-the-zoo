@@ -17,7 +17,6 @@ export const ImgFallback = ({ animal }: ImgFallbackProps) => {
 
             const fallback = await getImgFallback(animal.latinName)
             const imgUrls = fallback
-            // return imgUrl
             setFallBackImg(imgUrls)
         }
         getData()

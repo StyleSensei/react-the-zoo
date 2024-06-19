@@ -5,13 +5,11 @@ export const Layout = () => {
     return (
         <>
         <header>
-   
           <HeaderNav/>
         </header>
         <main>
           <Outlet />
         </main>
-        <footer>En footer  </footer>
       </>
     )
 }

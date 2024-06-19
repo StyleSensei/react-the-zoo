@@ -19,11 +19,10 @@ export const ShowAnimal = ({ animal, }: IShowAnimalProps) => {
             <div className={animal.alert ? 'animal__card alert' : 'animal__card'} id={animal.name.toLowerCase()}>
                 <h2>{animal.name}</h2>
                 {location.pathname === '/animals' && <p>{animal.shortDescription}</p>}
-                {/* {location.pathname === `/animals/${}`} */}
-                <picture>
+                <picture onClick={handleClick}>
                     {animal.alert && <Alert />}
 
-                    <Img src={animal.imageUrl} alt={animal.name} fallback={<ImgFallback animal={animal} />} />
+                    <Img src={animal.imageUrl} alt={animal.name} fallback={<ImgFallback animal={animal}/>} />
                 </picture>
 
                 {location.pathname === '/animals' && animal.isFed && <button onClick={handleClick}>Läs mer</button>}

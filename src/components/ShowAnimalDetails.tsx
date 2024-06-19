@@ -33,7 +33,7 @@ export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnima
 
     return (
         <>
-                <Link to={'/animals'}>Tillbaka</Link>
+                <Link to={'/animals'}><button>Tillbaka till alla djur</button></Link>
             <div className={`${setAlertOrHungryClass()} animal__card--details`}>
                 <picture>
                 {animal.alert && <Alert />}
@@ -46,11 +46,9 @@ export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnima
                 <h3 id="about-species">Rasbeskrivning</h3>
                 <p id="long-description">{animal.longDescription}</p>
                 <p id="medicine">Mediciner: {animal.medicine}</p>
-                {animal.isFed && <p id="is-fed">Är matad :D</p>}
                 <p id="last-fed">Senast matad: {animal.lastFed}</p>
                 <p id="birth">Födelseår: {animal.yearOfBirth}</p>
                 <button className={!animal.isFed ? 'alert--btn': ''} onClick={handleClick} disabled={animal.isFed}>Mata {animal.name}</button>
-                {/* {!animal.isFed && <button className="alert--btn" onClick={handleClick}>Mata nu</button>} */}
             </div>
         </>
     )

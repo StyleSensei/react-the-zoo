@@ -26,7 +26,7 @@
     }
   }
   h2 {
-    font-size: 1.5rem;
+    font-size: 3rem;
     margin: 0;
   }
   p {
@@ -62,19 +62,11 @@
    'last'
    'birth'
    'btn'
-      
     ;
     width: 80vw;
     height: unset;
 
-    @include mixins.lg {
 
-    }
-
-    @include mixins.phoneLS {
-
-
-    }
     @include mixins.desktop{
       grid-template-areas:
       'pic hd'
@@ -138,12 +130,11 @@
     }
   }
   &.alert{
-    // animation: borderanimation .5s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate both;
     animation: shake .5s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate both;
   }
 }
 .alert--btn{
-  background-color: orangered;
+  background-color: #ff4500;
 }
 .hungry{
   border-color: orangered;
@@ -157,14 +148,7 @@
     width: 300px;
       transition: all 3s ease-in;
 
-    
-    picture{
-      // height: 100%;
-      img{
-        // object-fit: ;
-        // height: 100%;
-      }
-    }
+  
   }
 }
 #stickan{

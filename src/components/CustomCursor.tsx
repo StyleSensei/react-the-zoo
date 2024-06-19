@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from "react"
 import { useWindowListener } from "../hooks/useWindowListener";
 
 
-
-
 export const CustomCursor = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const cardPositions = useRef<{x:number, y:number}>({x: 1000, y :300})
@@ -48,9 +46,7 @@ moveAnimal()
                         card.style.top = `${cardPositions.current.y - 150}px`
                         card.style.left = `${cardPositions.current.x - 150}px`
                     })
-                
             }
-
 
     const moveCursor = (e:PointerEvent) => {
         setIsMoving(true)
