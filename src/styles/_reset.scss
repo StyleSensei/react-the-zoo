@@ -11,17 +11,25 @@
 html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
-  -webkit-font-smoothing:antialiased;
+  -webkit-font-smoothing: antialiased;
   text-size-adjust: none;
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
 }
 
 /* Remove default margin in favour of better control in authored CSS */
-body, h1, h2, h3, h4, p,
-figure, blockquote, dl, dd {
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
   margin: 0;
 }
 
@@ -38,8 +46,13 @@ body {
 }
 
 /* Set shorter line heights on headings and interactive elements */
-h1, h2, h3, h4,
-button, input, label {
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
   line-height: 1.1;
 }
 
@@ -63,8 +76,10 @@ picture {
 }
 
 /* Inherit fonts for inputs and buttons */
-input, button,
-textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
   resize: none;
 }

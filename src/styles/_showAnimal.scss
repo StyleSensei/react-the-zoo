@@ -13,7 +13,6 @@
   height: 60vh;
   background-color: rgb(27, 27, 27);
 
-
   picture {
     overflow: hidden;
     height: 100%;
@@ -31,127 +30,128 @@
   }
   p {
     margin: 0;
-    max-width: 600px
+    max-width: 600px;
   }
 
-  .alert{
-    animation: badgeanimation .5s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate both;
-    
-    &__badge{
-    display: flex;
-    flex-wrap: wrap;
-    background-color: red;
-    padding: 1rem 2rem;
-    position: absolute;
-    p{
-      font-weight: 700
+  .alert {
+    animation: badgeanimation 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) infinite
+      alternate both;
+
+    &__badge {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: red;
+      padding: 1rem 2rem;
+      position: absolute;
+      p {
+        font-weight: 700;
+      }
     }
-  }
   }
   &--details {
     @extend .animal__card;
     display: grid;
     grid-template-areas:
-   'pic'
-   'hd'
-   'latin'
-   'h3'
-   'sdesc'
-   'ldesc'
-   'fed'
-   'last'
-   'birth'
-   'btn'
-    ;
+      'pic'
+      'hd'
+      'latin'
+      'abnm'
+      'birth'
+      'medi'
+      'sdesc'
+      'absp'
+      'ldesc'
+      'fed'
+      'last'
+      'btn';
     width: 80vw;
     height: unset;
 
-
-    @include mixins.desktop{
+    @include mixins.desktop {
       grid-template-areas:
-      'pic hd'
-      'pic latin'
-      'pic h3'
-      'pic sdesc'
-      'pic ldesc'
-      'pic ldesc'
-      'fed last'
-      '1fr birth'
-      '1fr btn';
+        'pic hd'
+        'pic latin'
+        'pic abnm'
+        'pic birth'
+        'pic medi'
+        'pic sdesc'
+        'pic absp'
+        'pic ldesc'
+        'pic ldesc'
+        'pic last'
+        '1fr btn';
     }
 
     picture {
       height: 100%;
       grid-area: pic;
     }
-    h1 {
+
+    #name {
       grid-area: hd;
-    }
-    h3 {
-      #about-name {
-        grid-area: abnm;
-      }
-
-      #about-species {
-        grid-area: absp;
-      }
+      font-size: 3rem;
     }
 
-    p {
-      #short-description {
-        grid-area: sdesc;
-      }
-
-      #long-description {
-        grid-area: ldesc;
-      }
-      #medicine {
-        grid-area: medi;
-      }
-      #is-fed {
-        grid-area: fed;
-      }
-      #last-fed {
-        grid-area: last;
-      }
-      #latin {
-        grid-area: latin;
-      }
-      #birth {
-        grid-area: birth;
-      }
+    #about-name {
+      grid-area: abnm;
     }
+
+    #about-species {
+      grid-area: absp;
+    }
+
+    #short-description {
+      grid-area: sdesc;
+    }
+
+    #long-description {
+      grid-area: ldesc;
+    }
+    #medicine {
+      grid-area: medi;
+    }
+    #is-fed {
+      grid-area: fed;
+    }
+    #last-fed {
+      grid-area: last;
+    }
+    #latin {
+      grid-area: latin;
+      font-style: italic;
+    }
+    #birth {
+      grid-area: birth;
+    }
+
     button {
       grid-area: btn;
     }
     &.alert {
-      animation: borderanimation .5s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate both;
-
+      animation: borderanimation 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
+        infinite alternate both;
     }
   }
-  &.alert{
-    animation: shake .5s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate both;
+  &.alert {
+    animation: shake 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate
+      both;
   }
 }
-.alert--btn{
+.alert--btn {
   background-color: #ff4500;
 }
-.hungry{
+.hungry {
   border-color: orangered;
 }
 
-
-.animal__list--home{
+.animal__list--home {
   cursor: none;
-  .animal__card{
+  .animal__card {
     height: 30vh;
     width: 300px;
-      transition: all 3s ease-in;
-
-  
+    transition: all 3s ease-in;
   }
 }
-#stickan{
+#stickan {
   z-index: 99;
 }
-

@@ -1,7 +1,3 @@
-// @use 'config';
-// $fontSizeMenuLinkMobile: 2rem;
-// $fontSizeMenuLinkMobile--landscape: 1.4rem;
-// $fontSizeMenuLinkDesktop: 0.75rem;
 
 //breakpoints
 $tablet: 768px;
@@ -42,37 +38,6 @@ $desktopXXL: 2000px;
   }
 }
 
-// @mixin link {
-//   display: inline-block;
-//   font-size: $fontSizeMenuLinkMobile;
-//   text-transform: uppercase;
-//   padding: 1.5rem 1.5rem;
-//   margin: 0.5rem;
-//   font-weight: 300;
-//   // border: solid config.$primary-color 2px;
-//   // @include config.transition-cubBez;
-//   &::after {
-//     content: '>';
-//     color: config.$primary-color;
-//     width: 1rem;
-//     height: 1rem;
-//     right: 5px;
-//     position: absolute;
-//     visibility: hidden;
-//     bottom: 3.2pc;
-//   }
-
-//   &:hover {
-//     color: config.$secondary-color;
-
-//     @include config.transition-cubBez;
-//     &::after {
-//       visibility: visible;
-//       @include config.transition-cubBez;
-//       color: config.$secondary-color;
-//     }
-//   }
-// }
 
 @mixin button {
   border-radius: 12px;
@@ -90,8 +55,7 @@ $desktopXXL: 2000px;
   color: white;
   border: solid white 2px;
   // @include config.transition-cubBez;
-  transition: all ease-in-out .3s;
-
+  transition: all ease-in-out 0.3s;
 
   &::after {
     content: '';
@@ -107,29 +71,24 @@ $desktopXXL: 2000px;
     opacity: 0;
     @include config.transition-cubBez;
   }
-  & span{
-    margin-right: 0rem;  
-    // @include config.transition-cubBez;
-    transition: margin .3s ease-in-out;
-}
+  & span {
+    margin-right: 0rem;
+    transition: margin 0.3s ease-in-out;
+  }
 
   &:hover {
     cursor: pointer;
     @include config.transition-cubBez;
-    
+
     & span {
       @include config.transition-cubBez;
       margin-right: 5%;
     }
 
     &::after {
-      transition-delay: .15s;
-      // transition: right ease-in-out .3s;
+      transition-delay: 0.15s;
       opacity: 1;
-    right: 30%;
-
-
-
+      right: 30%;
     }
   }
 }

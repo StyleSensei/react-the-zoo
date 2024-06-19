@@ -8,9 +8,10 @@ export const animalsLoader = async () => {
   if (!localStorage.getItem('animals')) {
     const data: IAnimalsLoader = { animals: await getAnimals() };
     return data;
-  }
-  else{
-    const data: IAnimalsLoader = { animals : JSON.parse(localStorage.getItem('animals') as string)}
-    return data
+  } else {
+    const data: IAnimalsLoader = {
+      animals: JSON.parse(localStorage.getItem('animals') as string),
+    };
+    return data;
   }
 };

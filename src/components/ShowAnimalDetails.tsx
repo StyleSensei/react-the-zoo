@@ -12,9 +12,9 @@ interface IAnimalDetails {
 export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnimalDetails) => {
 
     const setAlertOrHungryClass = () => {
-        if(!animal.isFed && !animal.alert) return 'hungry'
-        if(animal.alert) return 'alert'
-        return
+        if (!animal.isFed && !animal.alert) return 'hungry'
+        if (animal.alert) return 'alert'
+        return ''
     }
 
     const handleClick = () => {
@@ -33,10 +33,10 @@ export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnima
 
     return (
         <>
-                <Link to={'/animals'}><button>Tillbaka till alla djur</button></Link>
+            <Link to={'/animals'}><button>Tillbaka till alla djur</button></Link>
             <div className={`${setAlertOrHungryClass()} animal__card--details`}>
                 <picture>
-                {animal.alert && <Alert />}
+                    {animal.alert && <Alert />}
                     <Img src={animal.imageUrl} alt={animal.name} fallback={<ImgFallback animal={animal} />} />
                 </picture>
                 <h1 id="name">{animal.name}</h1>
@@ -48,7 +48,7 @@ export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnima
                 <p id="medicine">Mediciner: {animal.medicine}</p>
                 <p id="last-fed">Senast matad: {animal.lastFed}</p>
                 <p id="birth">Födelseår: {animal.yearOfBirth}</p>
-                <button className={!animal.isFed ? 'alert--btn': ''} onClick={handleClick} disabled={animal.isFed}>Mata {animal.name}</button>
+                <button className={!animal.isFed ? 'alert--btn' : ''} onClick={handleClick} disabled={animal.isFed}>Mata {animal.name}</button>
             </div>
         </>
     )

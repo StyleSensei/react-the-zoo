@@ -8,7 +8,7 @@ export const Zoo = () => {
 
     const location = useLocation()
 
-    const {animals, animalsInState, setAnimalsInState} = useUpdateAnimalStatus(4,3)
+    const { animals, animalsInState, setAnimalsInState } = useUpdateAnimalStatus(4, 3)
 
 
     animals.map((animal) => (

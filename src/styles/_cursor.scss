@@ -1,14 +1,13 @@
-.custom-cursor{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 100px;
-    z-index: 1000;
-    pointer-events: none;
-    cursor: none;
-    &-img{
-        position: relative;
-
-    }
+.custom-cursor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  z-index: 1000;
+  pointer-events: none;
+  cursor: none;
+  &-img {
+    position: relative;
+  }
 }

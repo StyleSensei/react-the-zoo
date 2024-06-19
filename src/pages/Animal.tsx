@@ -17,15 +17,15 @@ export const Animal = () => {
         if (!location.pathname.includes('/animals/' + animal?.id.toString())) {
             const redirect = true
             return redirect
-            }
+        }
     }
-            useEffect(()=>{
-                
-                if(checkId())
-                navigate('/animals')  
-    
-            },[checkId])
-     
+    useEffect(() => {
+
+        if (checkId())
+            navigate('/animals')
+
+    }, [checkId])
+
 
     return (
         <>

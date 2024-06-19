@@ -15,20 +15,20 @@ export const ShowAnimal = ({ animal, }: IShowAnimalProps) => {
     }
 
     return (
-        
-            <div className={animal.alert ? 'animal__card alert' : 'animal__card'} id={animal.name.toLowerCase()}>
-                <h2>{animal.name}</h2>
-                {location.pathname === '/animals' && <p>{animal.shortDescription}</p>}
-                <picture onClick={handleClick}>
-                    {animal.alert && <Alert />}
 
-                    <Img src={animal.imageUrl} alt={animal.name} fallback={<ImgFallback animal={animal}/>} />
-                </picture>
+        <div className={animal.alert ? 'animal__card alert' : 'animal__card'} id={animal.name.toLowerCase()}>
+            <h2>{animal.name}</h2>
+            {location.pathname === '/animals' && <p>{animal.shortDescription}</p>}
+            <picture onClick={handleClick}>
+                {animal.alert && <Alert />}
 
-                {location.pathname === '/animals' && animal.isFed && <button onClick={handleClick}>Läs mer</button>}
-                {location.pathname === '/animals' && !animal.isFed && <button className="alert--btn" onClick={handleClick}>Mata nu</button>}
+                <Img src={animal.imageUrl} alt={animal.name} fallback={<ImgFallback animal={animal} />} />
+            </picture>
 
-            </div>
-        
+            {location.pathname === '/animals' && animal.isFed && <button onClick={handleClick}>Läs mer</button>}
+            {location.pathname === '/animals' && !animal.isFed && <button className="alert--btn" onClick={handleClick}>Mata nu</button>}
+
+        </div>
+
     )
 }

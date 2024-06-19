@@ -2,13 +2,15 @@ import { useLoaderData } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { IAnimalsLoader } from '../loaders/animalsLoader';
 
-    
-   export const useUpdateAnimalStatus = (alertHours?:number, hungryHours?:number) =>{
-        const { animals } = useLoaderData() as IAnimalsLoader;
-            const [animalsInState, setAnimalsInState] = useState(animals);
+export const useUpdateAnimalStatus = (
+  alertHours?: number,
+  hungryHours?: number
+) => {
+  const { animals } = useLoaderData() as IAnimalsLoader;
+  const [animalsInState, setAnimalsInState] = useState(animals);
 
-    useEffect(() => {
-      if(alertHours && hungryHours)
+  useEffect(() => {
+    if (alertHours && hungryHours)
       setAnimalsInState(
         animals.map((animal) => {
           const lastFed = new Date(animal.lastFed);
@@ -39,7 +41,6 @@ import { IAnimalsLoader } from '../loaders/animalsLoader';
           return animal;
         })
       );
-    }, [animals,alertHours,hungryHours]);
-return { animals, animalsInState, setAnimalsInState };
-    }
-    
+  }, [animals, alertHours, hungryHours]);
+  return { animals, animalsInState, setAnimalsInState };
+};

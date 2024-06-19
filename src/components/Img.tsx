@@ -4,16 +4,16 @@ type ImgProps = HTMLProps<HTMLImageElement> & {
     fallback?: ReactNode
 }
 
-export const Img = ({fallback, src, alt}:ImgProps) => {
-    const [isBroken,setIsBroken] = useState(false)
+export const Img = ({ fallback, src, alt }: ImgProps) => {
+    const [isBroken, setIsBroken] = useState(false)
 
     const HandleError = () => {
-setIsBroken(true)
+        setIsBroken(true)
     }
     if (isBroken) return fallback
-return (
-    <>
-    <img onError={HandleError} src={src} alt={alt}/>
-    </>
-)
+    return (
+        <>
+            <img onError={HandleError} src={src} alt={alt} />
+        </>
+    )
 }

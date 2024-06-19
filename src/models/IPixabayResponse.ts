@@ -1,8 +1,8 @@
-export interface IPixabayResponse{
-    hits: [
-        {
-            webformatURL: string,
-            largeImageURL: string,
-        }
-    ]
+export interface IPixabayResponse {
+  hits: [
+    {
+      webformatURL: string;
+      largeImageURL: string;
+    }
+  ];
 }
