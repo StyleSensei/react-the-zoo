@@ -33,10 +33,11 @@ export const ShowAnimalDetails = ({ animal, animals, setAnimalsInState }: IAnima
 
     return (
         <>
-            <Link to={'/animals'}><button>Tillbaka till alla djur</button></Link>
+            <Link to={'/animals'}><button id="back-to-animals">Alla djur</button></Link>
             <div className={`${setAlertOrHungryClass()} animal__card--details`}>
                 <picture>
                     {animal.alert && <Alert />}
+                    {!animal.imageUrl && <ImgFallback animal={animal}/>}
                     <Img src={animal.imageUrl} alt={animal.name} fallback={<ImgFallback animal={animal} />} />
                 </picture>
                 <h1 id="name">{animal.name}</h1>

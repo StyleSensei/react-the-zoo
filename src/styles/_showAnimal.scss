@@ -157,3 +157,16 @@
 #stickan {
   z-index: 99;
 }
+#back-to-animals{
+
+&::before{
+  content: "";
+  background-image: url('/arrow_back.svg');
+  display: inline-block;
+  background-repeat: no-repeat;
+  height: 1rem;
+  width: 2rem;
+  background-size: 1rem 1rem;
+  vertical-align: -.125em;
+}
+}
