@@ -34,19 +34,17 @@ export const CustomCursor = () => {
                 n.current++
             }
         })
+        const moveAnimal = () => {
+            cardPositions.current.y = position.y
+            cardPositions.current.x = position.x
+            cards.forEach((card: HTMLElement) => {
+                card.style.top = `${cardPositions.current.y - 150}px`
+                card.style.left = `${cardPositions.current.x - 150}px`
+            })
+        }
         moveAnimal()
-    }, [cardPositions.current.x, cardPositions.current.y, cards])
+    }, [cardPositions.current.x, cardPositions.current.y, cards ,position])
 
-
-    const moveAnimal = () => {
-
-        cardPositions.current.y = position.y
-        cardPositions.current.x = position.x
-        cards.forEach((card: HTMLElement) => {
-            card.style.top = `${cardPositions.current.y - 150}px`
-            card.style.left = `${cardPositions.current.x - 150}px`
-        })
-    }
 
     const moveCursor = (e: PointerEvent) => {
         setIsMoving(true)
@@ -66,7 +64,7 @@ export const CustomCursor = () => {
                 }
             }
         }, 180);
-        moveAnimal()
+        // moveAnimal()
     }
 
 
@@ -82,7 +80,7 @@ export const CustomCursor = () => {
                 position: `fixed`
             }
             }>
-                <img className='custom-cursor-img' src="/public/carrot.svg" alt="carrot-cursor" />
+                <img className='custom-cursor-img' src="/carrot.svg" alt="carrot-cursor" />
             </div>}
         </>
     )

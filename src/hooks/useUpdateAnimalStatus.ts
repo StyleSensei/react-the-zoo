@@ -12,7 +12,7 @@ export const useUpdateAnimalStatus = (
   useEffect(() => {
     if (alertHours && hungryHours)
       setAnimalsInState(
-        animals.map((animal) => {
+        animals?.map((animal) => {
           const lastFed = new Date(animal.lastFed);
           const currentTime = new Date(Date.now());
           const diff = currentTime.getTime() - lastFed.getTime();

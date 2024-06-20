@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { IAnimal } from "../models/IAnimal"
-import { IPixabayResponse } from "../models/IPixabayResponse"
 import { getImgFallback } from "../services/animalsService"
 
 interface ImgFallbackProps {
@@ -9,21 +8,25 @@ interface ImgFallbackProps {
 
 export const ImgFallback = ({ animal }: ImgFallbackProps) => {
 
-    const [fallbackImg, setFallBackImg] = useState<IPixabayResponse>()
-
+    const [fallbackImg, setFallBackImg] = useState<string>()
+    
     useEffect(() => {
-
+        
         const getData = async () => {
+            try{
+                const response = await getImgFallback(animal.latinName)
 
-            const fallback = await getImgFallback(animal.latinName)
-            const imgUrls = fallback
-            setFallBackImg(imgUrls)
+                const imgUrl = response?.hits[0].largeImageURL
+                setFallBackImg(imgUrl)
+            } catch (error){
+                console.error('fallback error',error);
+                setFallBackImg('/404.png')
+                
+            }
         }
         getData()
     }, [animal])
     return (
-
-        <img src={fallbackImg?.hits[0].largeImageURL} />
-
+        <img src={fallbackImg} />
     )
 }

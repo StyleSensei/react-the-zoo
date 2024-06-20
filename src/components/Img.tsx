@@ -12,8 +12,6 @@ export const Img = ({ fallback, src, alt }: ImgProps) => {
     }
     if (isBroken) return fallback
     return (
-        <>
             <img onError={HandleError} src={src} alt={alt} />
-        </>
     )
 }

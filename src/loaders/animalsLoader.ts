@@ -2,10 +2,11 @@ import { IAnimal } from '../models/IAnimal';
 import { getAnimals } from '../services/animalsService';
 
 export interface IAnimalsLoader {
-  animals: IAnimal[];
+  animals: IAnimal[] | undefined;
 }
 export const animalsLoader = async () => {
   if (!localStorage.getItem('animals')) {
+    
     const data: IAnimalsLoader = { animals: await getAnimals() };
     return data;
   } else {
