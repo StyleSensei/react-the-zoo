@@ -68,7 +68,7 @@ export const CustomCursor = () => {
     }
 
 
-    useWindowListener('pointermove', (moveCursor));
+    useWindowListener('pointermove', (moveCursor as EventListener));
 
     return (
         <>
