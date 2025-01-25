@@ -15,7 +15,7 @@ export const getImgFallback = async (
   query: string
 ): Promise<IPixabayResponse | undefined> => {
   const url = `https://pixabay.com/api/?key=${
-    import.meta.env.VITE_API_KEY
+    import.meta.env.VITE_PIXABAY_API_KEY
   }&q=${query}`;
   const data = await get<IPixabayResponse>(url);
   return data;
