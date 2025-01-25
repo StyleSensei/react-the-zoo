@@ -11,10 +11,10 @@ export const Zoo = () => {
     const { animals, animalsInState, setAnimalsInState } = useUpdateAnimalStatus(4, 3)
 
 
-    animals.map((animal) => (
+    animals?.map((animal) => (
         animal.lastFed = new Date(animal.lastFed).toLocaleString()
     ))
-    if (!animalsInState.length)
+    if (!animalsInState?.length)
         setAnimalsInState(JSON.parse(localStorage.getItem('animals') as string))
     useEffect(() => {
         localStorage.setItem('animals', JSON.stringify(animalsInState))
@@ -23,7 +23,7 @@ export const Zoo = () => {
     return (
         <div className="wrapper">
             {animalsInState && setAnimalsInState && <Outlet key={location.pathname} context={[animalsInState, setAnimalsInState] satisfies ContextType} />}
-            {location.pathname === '/animals' && <ShowAnimals animalsInState={animalsInState} />}
+            {location.pathname === '/animals' && animalsInState && <ShowAnimals animalsInState={animalsInState} />}
         </div>
     )
 }

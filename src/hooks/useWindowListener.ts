@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
-export function useWindowListener(eventType, listener) {
+export function useWindowListener(eventType: string, listener: EventListenerOrEventListenerObject) {
   useEffect(() => {
     window.addEventListener(eventType, listener);
     return () => {
