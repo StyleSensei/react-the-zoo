@@ -64,11 +64,11 @@ export const CustomCursor = () => {
                 }
             }
         }, 180);
-        // moveAnimal()
     }
 
 
     useWindowListener('pointermove', (moveCursor as EventListener));
+    useWindowListener('touchstart', (moveCursor as EventListener));
 
     return (
         <>

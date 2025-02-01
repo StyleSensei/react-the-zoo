@@ -10,8 +10,11 @@ $scss-color: #c6538c;
 $typescript-color: #3178c6;
 $html-color: #e34c26;
 
-$hero-h1: 10rem;
-$hero-subhead: 5rem;
+$hero-h1-mobile: 6rem;
+$hero-h1-desktop: 10rem;
+
+$hero-subhead-mobile: 3rem;
+$hero-subhead-desktop: 5rem;
 
 $font-size-p-large: 1.5rem;
 $font-size-p-small: calc($font-size-p-large * 0.86);

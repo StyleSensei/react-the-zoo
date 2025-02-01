@@ -10,7 +10,7 @@
 #root{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: auto;
     width: 100vw;
     padding: 1rem;
 }
@@ -94,15 +94,24 @@
 main{
     display: flex;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 h1{
     font-family: 'QuiteMagicalRegular';
-    font-size: config.$hero-h1
-    }
+    font-size: config.$hero-h1-mobile;
+    @include mixins.desktop {
+        font-size: config.$hero-h1-desktop;
+    } 
+  }
     
     h2{
     font-family: 'QuiteMagicalRegular';
-    font-size: config.$hero-subhead
+    font-size: config.$hero-subhead-mobile;
+    @include mixins.desktop {
+        font-size: config.$hero-subhead-desktop;
+    }
 
 }
